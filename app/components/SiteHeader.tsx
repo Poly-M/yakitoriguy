@@ -1,5 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
+import { LOGO } from "../content";
 
 const LINKS = [
   ["YakitoriGuy", "/yakitoriguy"],
@@ -12,7 +13,7 @@ export default function SiteHeader({ current }: { current?: string }) {
       <nav className="mx-auto flex max-w-4xl items-center justify-between gap-6 px-6 py-4">
         <Link href="/home" aria-label="YAKIGANG — back to the crossroads" className="shrink-0">
           <Image
-            src="/logo.png"
+            src={LOGO}
             alt="YAKIGANG"
             width={552}
             height={619}

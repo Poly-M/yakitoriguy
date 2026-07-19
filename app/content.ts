@@ -2,6 +2,9 @@
 /* Site content — edit these arrays to update the site               */
 /* ---------------------------------------------------------------- */
 
+// unoptimized next/image doesn't apply basePath, so prefix it ourselves
+export const LOGO = `${process.env.NEXT_PUBLIC_BASE_PATH ?? ""}/logo.png`;
+
 export const POPUPS = [
   {
     date: "Aug 02, 2026",

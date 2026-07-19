@@ -1,6 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import Grain from "./components/Grain";
+import { LOGO } from "./content";
 
 export default function Home() {
   return (
@@ -22,7 +23,7 @@ export default function Home() {
         aria-label="Enter YAKIGANG"
       >
         <Image
-          src="/logo.png"
+          src={LOGO}
           alt="YAKIGANG — charcoal-grilled yakitori"
           width={552}
           height={619}

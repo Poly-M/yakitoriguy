@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import Grain from "../components/Grain";
-import { SOCIALS } from "../content";
+import { LOGO, SOCIALS } from "../content";
 
 export const metadata: Metadata = {
   title: "YAKIGANG — Choose your path",
@@ -34,7 +34,7 @@ export default function Crossroads() {
       <header className="relative z-10 flex justify-center pb-2 pt-10">
         <Link href="/" aria-label="Back to the front door">
           <Image
-            src="/logo.png"
+            src={LOGO}
             alt="YAKIGANG"
             width={552}
             height={619}
