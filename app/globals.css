@@ -1,26 +1,100 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --background: #fdfdfb;
+  --ink: #1b2545;
+  --accent: #c8372d;
 }
 
 @theme inline {
   --color-background: var(--background);
-  --color-foreground: var(--foreground);
+  --color-ink: var(--ink);
+  --color-accent: var(--accent);
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+html {
+  scroll-behavior: smooth;
 }
 
 body {
   background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  color: var(--ink);
+  font-family: var(--font-sans), Arial, Helvetica, sans-serif;
+}
+
+::selection {
+  background: var(--ink);
+  color: var(--background);
+}
+
+/* Loader: thin navy line draws in from the center */
+@keyframes draw-line {
+  0% {
+    transform: scaleX(0);
+  }
+  100% {
+    transform: scaleX(1);
+  }
+}
+
+@keyframes fade-out {
+  to {
+    opacity: 0;
+    visibility: hidden;
+  }
+}
+
+/* Logo entrance: fade + gentle rise + settle */
+@keyframes logo-in {
+  0% {
+    opacity: 0;
+    transform: translateY(14px) scale(0.97);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.loader-line {
+  animation: draw-line 1.1s cubic-bezier(0.65, 0, 0.35, 1) forwards;
+}
+
+.loader-overlay {
+  animation: fade-out 0.6s ease 1.35s forwards;
+}
+
+.logo-enter {
+  opacity: 0;
+  animation: logo-in 1s cubic-bezier(0.22, 1, 0.36, 1) 1.5s forwards;
+}
+
+.tagline-enter {
+  opacity: 0;
+  animation: fade-in 1.2s ease 2.1s forwards;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .loader-overlay {
+    display: none;
+  }
+  .loader-line {
+    animation: none;
+  }
+  .logo-enter,
+  .tagline-enter {
+    animation: none;
+    opacity: 1;
+  }
 }
