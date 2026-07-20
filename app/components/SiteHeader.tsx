@@ -15,9 +15,9 @@ export default function SiteHeader({ current }: { current?: string }) {
           <Image
             src={LOGO}
             alt="YAKIGANG"
-            width={552}
-            height={619}
-            className="h-9 w-auto"
+            width={523}
+            height={591}
+            className="logo-shadow-sm h-9 w-auto"
           />
         </Link>
         <div className="flex flex-wrap items-center justify-end gap-x-5 gap-y-1">

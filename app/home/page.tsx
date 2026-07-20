@@ -36,10 +36,10 @@ export default function Crossroads() {
           <Image
             src={LOGO}
             alt="YAKIGANG"
-            width={552}
-            height={619}
+            width={523}
+            height={591}
             priority
-            className="h-14 w-auto"
+            className="logo-shadow-sm h-14 w-auto"
           />
         </Link>
       </header>

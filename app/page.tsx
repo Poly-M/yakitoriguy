@@ -25,10 +25,10 @@ export default function Home() {
         <Image
           src={LOGO}
           alt="YAKIGANG — charcoal-grilled yakitori"
-          width={552}
-          height={619}
+          width={523}
+          height={591}
           priority
-          className="h-auto w-64 transition-transform duration-500 ease-out group-hover:scale-[1.03] sm:w-80 md:w-[26rem]"
+          className="logo-shadow h-auto w-64 transition-transform duration-500 ease-out group-hover:scale-[1.03] sm:w-80 md:w-[26rem]"
         />
         <span className="mt-10 text-[0.65rem] uppercase tracking-[0.45em] text-ink/0 transition-colors duration-500 group-hover:text-ink/50">
           Enter
