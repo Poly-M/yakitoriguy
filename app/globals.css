@@ -29,6 +29,56 @@ body {
   color: var(--background);
 }
 
+/* Pill buttons — bolder, rounded CTAs for the YakiGang page */
+.btn-pill {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  border-radius: 9999px;
+  padding: 0.85rem 2rem;
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  font-weight: 500;
+  transition: all 0.3s ease;
+  white-space: nowrap;
+}
+
+.btn-pill-solid {
+  background: var(--ink);
+  color: var(--background);
+}
+.btn-pill-solid:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 20px rgba(27, 37, 69, 0.25);
+}
+
+.btn-pill-outline {
+  border: 1.5px solid currentColor;
+}
+.btn-pill-outline:hover {
+  transform: translateY(-2px);
+}
+
+.btn-pill-cream {
+  background: var(--background);
+  color: var(--ink);
+}
+.btn-pill-cream:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+/* Category tile — lifts slightly on hover, like a shop card */
+.tile-card {
+  transition: transform 0.35s ease, box-shadow 0.35s ease;
+}
+.tile-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 16px 30px rgba(27, 37, 69, 0.14);
+}
+
 /* Soft lift for the logo — follows its sticker silhouette, not a box */
 .logo-shadow {
   filter: drop-shadow(0 1px 2px rgba(27, 37, 69, 0.12))
