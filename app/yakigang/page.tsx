@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { Bebas_Neue } from "next/font/google";
 import Grain from "../components/Grain";
 import SiteHeader from "../components/SiteHeader";
 import SiteFooter from "../components/SiteFooter";
@@ -8,13 +9,13 @@ import Mailer from "../components/Mailer";
 import { SauceIcon, KnifeIcon, ChatIcon } from "../components/GangIcons";
 import { PROJECTS, STOCKISTS } from "../content";
 
+const bebasNeue = Bebas_Neue({ weight: "400", subsets: ["latin"] });
+
 export const metadata: Metadata = {
   title: "YakiGang — YAKIGANG",
   description:
     "The brand — the sauce, the knives, and the Discord where the gang hangs out.",
 };
-
-const VALUES = ["Small Batch", "Brewed In The Bay", "Numbered Runs", "Made By Hand"];
 
 const TILES = [
   {
@@ -47,53 +48,73 @@ export default function YakiGangPage() {
   return (
     <div className="relative min-h-screen bg-background text-ink">
       <Grain />
+
+      {/* promo strip — page-specific, sits above the shared header */}
+      <div className="bg-accent py-3 text-center text-[0.7rem] font-medium uppercase tracking-[0.08em] text-background">
+        Small batch &middot; while it lasts
+      </div>
+
       <SiteHeader current="/yakigang" />
 
-      {/* hero band — bold, full-bleed navy */}
-      <section className="relative overflow-hidden bg-ink text-background">
-        <div
-          aria-hidden
-          className="pointer-events-none absolute inset-0 opacity-[0.06] mix-blend-overlay"
-          style={{
-            backgroundImage:
-              "radial-gradient(circle at 20% 20%, currentColor 1px, transparent 1px)",
-            backgroundSize: "22px 22px",
-          }}
-        />
-        <div className="relative mx-auto max-w-4xl px-6 py-20 sm:py-28">
-          <span className="text-[0.65rem] uppercase tracking-[0.4em] text-accent">
-            The goods &amp; the gang
+      {/* sauce hero — navy as a contained block on the off-white page */}
+      <div className="px-6 pb-12 pt-6 sm:px-14 sm:pb-20 sm:pt-8">
+        <div className="relative mx-auto max-w-4xl overflow-hidden rounded-[20px] bg-ink text-background">
+          <span
+            aria-hidden
+            className={`${bebasNeue.className} pointer-events-none absolute left-1/2 top-[54%] -translate-x-1/2 -translate-y-1/2 whitespace-nowrap text-background/[0.045]`}
+            style={{ fontSize: "clamp(5rem,20vw,10rem)" }}
+          >
+            TARE
           </span>
-          <h1 className="mt-5 max-w-2xl text-4xl font-light uppercase leading-[1.15] tracking-tight sm:text-5xl">
-            Sauce, steel, and the{" "}
-            <span className="sm:whitespace-nowrap">gang that shows up.</span>
-          </h1>
-          <p className="mt-6 max-w-md text-sm leading-relaxed text-background/70">
-            Small-batch tare, chef-ground knives, and the Discord where new
-            recipes get tested before anyone else sees them.
-          </p>
-          <div className="mt-9 flex flex-wrap items-center gap-4">
-            <a href="#sauce" className="btn-pill btn-pill-cream">
-              Shop the Sauce
-            </a>
-            <a href="#discord" className="btn-pill btn-pill-outline">
-              Join the Discord
-            </a>
+          <div className="relative grid gap-10 px-6 py-14 sm:grid-cols-[1fr_auto] sm:items-center sm:px-12 sm:py-20">
+            <div>
+              <span className="inline-flex items-center rounded-full bg-accent px-4 py-1.5 text-[0.68rem] font-medium uppercase tracking-[0.12em] text-background">
+                Now bottled
+              </span>
+              <h1
+                className={`${bebasNeue.className} mt-6 uppercase leading-[0.98] tracking-wide`}
+                style={{ fontSize: "clamp(2.4rem,6.4vw,4rem)" }}
+              >
+                Sauce that earns its <span className="text-accent">spot</span>{" "}
+                on the table.
+              </h1>
+              <p className="mt-6 max-w-[34ch] text-sm leading-relaxed text-background/70">
+                The house tare from the pop-up line, bottled for the first
+                time.
+              </p>
+              <div className="mt-8 flex flex-wrap gap-3">
+                {["Small batch", "Hand bottled", "Made in the Bay"].map(
+                  (chip) => (
+                    <span
+                      key={chip}
+                      className="rounded-full border border-background/35 px-4 py-2 text-[0.66rem] font-medium uppercase tracking-[0.08em]"
+                    >
+                      {chip}
+                    </span>
+                  )
+                )}
+              </div>
+              <div className="mt-9 flex flex-wrap gap-4">
+                <a href="#sauce" className="btn-pill btn-pill-cream">
+                  Shop the sauce
+                </a>
+                <a href="#discord" className="btn-pill btn-pill-outline">
+                  Join the Discord
+                </a>
+              </div>
+            </div>
+            <div className="relative mx-auto flex aspect-[4/5] w-[min(300px,60vw)] flex-col items-center justify-center gap-2 rounded-lg border border-dashed border-background/40 bg-background/[0.035] p-6 text-center">
+              <span className="text-[0.62rem] uppercase tracking-[0.1em] text-background/55">
+                Product photo
+              </span>
+              <span className="text-[0.62rem] uppercase tracking-[0.1em] text-background/55">
+                generate &amp; drop in
+              </span>
+              <span className="text-[0.58rem] text-background/35">
+                &asymp; 1600&times;2000
+              </span>
+            </div>
           </div>
-        </div>
-      </section>
-
-      {/* values strip */}
-      <div className="border-b border-ink/10 bg-background">
-        <div className="mx-auto flex max-w-4xl flex-wrap items-center justify-center gap-x-8 gap-y-3 px-6 py-6">
-          {VALUES.map((v) => (
-            <span
-              key={v}
-              className="text-[0.62rem] uppercase tracking-[0.25em] text-ink/50"
-            >
-              {v}
-            </span>
-          ))}
         </div>
       </div>
 
