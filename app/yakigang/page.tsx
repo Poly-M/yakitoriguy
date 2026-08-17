@@ -1,15 +1,14 @@
 import type { Metadata } from "next";
-import { Bebas_Neue } from "next/font/google";
 import Grain from "../components/Grain";
 import SiteHeader from "../components/SiteHeader";
 import SiteFooter from "../components/SiteFooter";
 import SectionHeading from "../components/SectionHeading";
 import LikeButton from "../components/LikeButton";
 import Mailer from "../components/Mailer";
+import PhotoPlaceholder from "../components/PhotoPlaceholder";
 import { SauceIcon, KnifeIcon, ChatIcon } from "../components/GangIcons";
+import { bebasNeue } from "../fonts";
 import { PROJECTS, STOCKISTS } from "../content";
-
-const bebasNeue = Bebas_Neue({ weight: "400", subsets: ["latin"] });
 
 export const metadata: Metadata = {
   title: "YakiGang — YAKIGANG",
@@ -43,6 +42,8 @@ const TILES = [
     dark: true,
   },
 ];
+
+const KNIFE_CHIPS = ["Numbered runs", "Hand ground", "Small forge"];
 
 export default function YakiGangPage() {
   return (
@@ -103,17 +104,11 @@ export default function YakiGangPage() {
                 </a>
               </div>
             </div>
-            <div className="relative mx-auto flex aspect-[4/5] w-[min(300px,60vw)] flex-col items-center justify-center gap-2 rounded-lg border border-dashed border-background/40 bg-background/[0.035] p-6 text-center">
-              <span className="text-[0.62rem] uppercase tracking-[0.1em] text-background/55">
-                Product photo
-              </span>
-              <span className="text-[0.62rem] uppercase tracking-[0.1em] text-background/55">
-                generate &amp; drop in
-              </span>
-              <span className="text-[0.58rem] text-background/35">
-                &asymp; 1600&times;2000
-              </span>
-            </div>
+            <PhotoPlaceholder
+              dark
+              dims="≈ 1600×2000"
+              className="mx-auto w-[min(300px,60vw)]"
+            />
           </div>
         </div>
       </div>
@@ -156,11 +151,12 @@ export default function YakiGangPage() {
         {/* 01 — the sauce */}
         <section id="sauce" className="scroll-mt-24 py-14">
           <SectionHeading
-            no="01"
-            title="The Sauce"
-            sub="The house tare, bottled — soy, mirin, chicken bones, and years of pot-keeping."
+            variant="bold"
+            no="01 · The Sauce"
+            title="The House Tare"
+            sub="Soy, mirin, chicken bones, and years of pot-keeping — bottled for the first time."
           />
-          <div className="grid gap-10 sm:grid-cols-2">
+          <div className="grid gap-10 sm:grid-cols-[1fr_auto] sm:items-start">
             <div className="flex flex-col items-start gap-5">
               <p className="text-sm leading-relaxed text-ink/80">
                 Tare is the sauce pot that lives next to every yakitori grill —
@@ -172,48 +168,77 @@ export default function YakiGangPage() {
               <span className="btn-pill btn-pill-outline text-ink/50">
                 Online store opening soon
               </span>
-              <p className="text-sm leading-relaxed text-ink/70">
+              <div className="mt-2 w-full">
+                <h3 className="mb-3 text-[0.65rem] uppercase tracking-[0.25em] text-ink/50">
+                  Where to buy
+                </h3>
+                <ul className="flex flex-col">
+                  {STOCKISTS.map((s) => (
+                    <li
+                      key={s}
+                      className="border-b border-ink/10 py-3 text-sm text-ink/80"
+                    >
+                      {s}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+              <p className="mt-2 text-sm leading-relaxed text-ink/70">
                 Want first crack at the batch? Leave your email:
               </p>
               <Mailer variant="pill" />
             </div>
-            <div>
-              <h3 className="mb-4 text-[0.65rem] uppercase tracking-[0.25em] text-ink/50">
-                Where to buy
-              </h3>
-              <ul className="flex flex-col">
-                {STOCKISTS.map((s) => (
-                  <li
-                    key={s}
-                    className="border-b border-ink/10 py-3 text-sm text-ink/80"
-                  >
-                    {s}
-                  </li>
-                ))}
-              </ul>
-            </div>
+            <PhotoPlaceholder
+              label="Detail shot"
+              dims="≈ 1200×1500"
+              className="mx-auto w-[min(260px,60vw)] sm:mx-0"
+            />
           </div>
         </section>
 
         {/* 02 — knives */}
         <section id="knives" className="scroll-mt-24 py-14">
           <SectionHeading
-            no="02"
-            title="The Knives"
-            sub="Honesuki and petty knives ground for chicken work, made with a small forge run."
+            variant="bold"
+            no="02 · The Knives"
+            title="Ground For Chicken Work"
+            sub="Honesuki and petty knives, made with a small forge run."
           />
-          <p className="max-w-md text-sm leading-relaxed text-ink/80">
-            Each blade is numbered, and each run is small enough to keep the
-            grind honest. New runs are announced on the mailer and in the
-            Discord first.
-          </p>
+          <div className="grid gap-10 sm:grid-cols-[1fr_auto] sm:items-center">
+            <div className="flex flex-col items-start gap-5">
+              <p className="max-w-md text-sm leading-relaxed text-ink/80">
+                Each blade is numbered, and each run is small enough to keep
+                the grind honest. New runs are announced on the mailer and in
+                the Discord first.
+              </p>
+              <div className="flex flex-wrap gap-3">
+                {KNIFE_CHIPS.map((chip) => (
+                  <span
+                    key={chip}
+                    className="rounded-full border border-ink/25 px-4 py-2 text-[0.66rem] font-medium uppercase tracking-[0.08em] text-ink/70"
+                  >
+                    {chip}
+                  </span>
+                ))}
+              </div>
+              <a href="#" className="btn-pill btn-pill-solid mt-2">
+                Get notified
+              </a>
+            </div>
+            <PhotoPlaceholder
+              label="Detail shot"
+              dims="≈ 1200×1500"
+              className="mx-auto w-[min(260px,60vw)] sm:mx-0"
+            />
+          </div>
         </section>
 
         {/* 03 — projects */}
         <section id="projects" className="scroll-mt-24 py-14">
           <SectionHeading
-            no="03"
-            title="On the Bench"
+            variant="bold"
+            no="03 · On The Bench"
+            title="What's Next"
             sub="Things the gang is building. Tap the heart on whatever you want to exist — it tells us where to point the fire."
           />
           <ul className="grid gap-6 sm:grid-cols-3">
@@ -237,11 +262,14 @@ export default function YakiGangPage() {
 
       {/* 04 — discord / join band */}
       <section id="discord" className="scroll-mt-24 bg-ink text-background">
-        <div className="mx-auto flex max-w-4xl flex-col items-start gap-6 px-6 py-16">
-          <span className="text-[0.65rem] uppercase tracking-[0.4em] text-accent">
+        <div className="mx-auto flex max-w-4xl flex-col items-start gap-6 px-6 py-16 sm:py-20">
+          <span className="inline-flex items-center rounded-full bg-accent px-4 py-1.5 text-[0.68rem] font-medium uppercase tracking-[0.12em] text-background">
             04 &middot; The Discord
           </span>
-          <h2 className="max-w-lg text-2xl font-light leading-snug sm:text-3xl">
+          <h2
+            className={`${bebasNeue.className} max-w-lg uppercase leading-[0.98] tracking-wide`}
+            style={{ fontSize: "clamp(1.9rem,5vw,3rem)" }}
+          >
             Join the gang. Cook-alongs, gear talk, and first word on drops.
           </h2>
           <a href="#" className="btn-pill btn-pill-cream mt-2">
