@@ -84,7 +84,7 @@ export default function YakiGangPage() {
                 time.
               </p>
               <div className="mt-8 flex flex-wrap gap-3">
-                {["Small batch", "Hand bottled", "Made in the Bay"].map(
+                {["Small batch", "Hand bottled", "Made by San-J Tamari"].map(
                   (chip) => (
                     <span
                       key={chip}
