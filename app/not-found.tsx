@@ -49,12 +49,6 @@ export default function NotFound() {
           <Link href="/" className="btn-pill btn-pill-solid">
             Back to start
           </Link>
-          <Link href="/yakitoriguy" className="btn-pill btn-pill-outline">
-            YakitoriGuy
-          </Link>
-          <Link href="/yakigang" className="btn-pill btn-pill-outline">
-            YakiGang
-          </Link>
         </div>
       </div>
     </div>
