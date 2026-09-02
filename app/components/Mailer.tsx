@@ -42,7 +42,7 @@ export default function Mailer({
               dark ? "border-background/30 text-background" : "border-ink/20 text-ink"
             }`}
           >
-            <span className="text-accent">&#10003;</span>
+            <span className={dark ? "text-background" : "text-ink"}>&#10003;</span>
             <span>You&rsquo;re on the list &mdash; watch your inbox.</span>
           </div>
           {iframe}
@@ -85,7 +85,7 @@ export default function Mailer({
     return (
       <>
         <div className="mailer-success-in flex w-full max-w-md items-center gap-2 border-b border-ink/20 py-2.5 text-sm text-ink">
-          <span className="text-accent">&#10003;</span>
+          <span className="text-ink">&#10003;</span>
           <span>You&rsquo;re on the list &mdash; watch your inbox.</span>
         </div>
         {iframe}
