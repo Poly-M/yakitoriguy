@@ -1,7 +1,5 @@
-import Image from "next/image";
-import Link from "next/link";
 import Grain from "./components/Grain";
-import { LOGO } from "./content";
+import MailingListGate from "./components/MailingListGate";
 
 export default function Home() {
   return (
@@ -16,27 +14,11 @@ export default function Home() {
         <div className="loader-line h-px w-40 origin-center bg-ink" />
       </div>
 
-      {/* logo, plain and center — the door into the site */}
-      <Link
-        href="/home"
-        className="logo-enter group relative z-10 flex flex-col items-center px-8"
-        aria-label="Enter YAKIGANG"
-      >
-        <Image
-          src={LOGO}
-          alt="YAKIGANG — charcoal-grilled yakitori"
-          width={523}
-          height={591}
-          priority
-          className="logo-shadow h-auto w-64 transition-transform duration-500 ease-out group-hover:scale-[1.03] sm:w-80 md:w-[26rem]"
-        />
-        <span className="mt-10 text-[0.65rem] uppercase tracking-[0.45em] text-ink/0 transition-colors duration-500 group-hover:text-ink/50">
-          Enter
-        </span>
-      </Link>
+      {/* logo, plain and center — tap it to join the mailing list */}
+      <MailingListGate />
 
-      <p className="tagline-enter absolute bottom-10 z-10 text-[0.7rem] uppercase tracking-[0.45em] text-ink/60">
-        Yakitori &middot; Tap the logo to enter
+      <p className="tagline-enter absolute inset-x-0 bottom-10 z-10 px-6 text-center text-[0.7rem] uppercase tracking-[0.45em] text-ink/60">
+        Yakitori &middot; Tap the logo to join the list
       </p>
     </main>
   );
