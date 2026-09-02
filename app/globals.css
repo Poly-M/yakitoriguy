@@ -147,6 +147,25 @@ body {
   animation: fade-in 1.2s ease 2.1s forwards;
 }
 
+/* Mailer success: the field settles into its confirmation, same size */
+@keyframes mailer-success-in {
+  0% {
+    opacity: 0;
+    transform: translateY(3px) scale(0.98);
+  }
+  60% {
+    opacity: 1;
+    transform: translateY(0) scale(1.01);
+  }
+  100% {
+    transform: translateY(0) scale(1);
+  }
+}
+
+.mailer-success-in {
+  animation: mailer-success-in 0.45s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+
 @media (prefers-reduced-motion: reduce) {
   .loader-overlay {
     display: none;
@@ -158,5 +177,8 @@ body {
   .tagline-enter {
     animation: none;
     opacity: 1;
+  }
+  .mailer-success-in {
+    animation: none;
   }
 }
